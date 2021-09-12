@@ -3,9 +3,10 @@ package com.android.tvmazeapplication.showInfo
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.TableLayout
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.viewpager2.widget.ViewPager2
 import com.android.tvmazeapplication.MainActivity
 import com.android.tvmazeapplication.R
@@ -16,53 +17,55 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.show_info_activity.*
+import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
-class ShowInfoActivity: BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+class ShowInfoActivity: BaseActivity() {
+    private val viewModel: ShowInfoViewModel by viewModel { parametersOf(intent.getIntExtra("ShowId", 0)) }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.show_info_activity)
 
-        val showIntent = intent.getStringExtra("ShowInfo")
-
-        setupNavigationDrawer()
-
+//        val fragment = ShowInfoFragment.newInstance(showId)
+//        val bundle = Bundle()
+//        bundle.putInt("ShowId",showId)
+//        val fragmentObject = ShowInfoFragment()
+//        fragmentObject.arguments = bundle
+//        val fm: FragmentManager = supportFragmentManager
+//        fm.beginTransaction().add(R.id.content_main, fragmentObject).commit()
+        val showId = intent.getIntExtra("ShowId", 0)
         val tableLayout = findViewById<TabLayout>(R.id.tab_layout)
         val viewPager2 = findViewById<ViewPager2>(R.id.view_pager_2)
-
-        val adapter = ViewPagerAdapter(supportFragmentManager,lifecycle)
+        val adapter = ViewPagerAdapter(supportFragmentManager, lifecycle,showId)
 
         viewPager2.adapter = adapter
 
-        TabLayoutMediator(tableLayout,viewPager2){tab, position ->
+        TabLayoutMediator(tableLayout, viewPager2){ tab, position ->
             when(position){
-                0->{
+                0 -> {
                     tab.text = "Show Information"
                 }
-                1->
-                    tab.text = "Wait Lang"
+                1 ->
+                    tab.text = "Episode"
             }
         }.attach()
 
     }
 
-    private fun setupNavigationDrawer(){
-        val toggle = ActionBarDrawerToggle(this, drawerLayout,toolbar, R.string.open, R.string.close)
-        toggle.isDrawerIndicatorEnabled = true
-        drawerLayout.addDrawerListener(toggle)
-        toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white))
-        toggle.syncState()
-
-        nav_menu.setNavigationItemSelectedListener(this)
+    override fun onAttachFragment(fragment: Fragment) {
+        super.onAttachFragment(fragment)
     }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        drawerLayout.closeDrawer(GravityCompat.START)
-
-        when(item.itemId){
-            R.id.home -> {
-                startActivity(Intent(this,MainActivity::class.java))
-            }
-        }
-        return true
+    override fun onStart() {
+        super.onStart()
     }
+
+    override fun onResume() {
+        super.onResume()
+    }
+
+
 }

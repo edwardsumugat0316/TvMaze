@@ -19,6 +19,6 @@ class TentativeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tentative, container, false)
+        return inflater.inflate(R.layout.fragment_episodes, container, false)
     }
 }
