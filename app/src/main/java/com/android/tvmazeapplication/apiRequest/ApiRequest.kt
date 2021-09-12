@@ -1,13 +1,15 @@
 package com.android.tvmazeapplication.apiRequest
 
-import com.android.tvmazeapplication.model.ShowStructureItem
-import retrofit2.Call
+import com.android.tvmazeapplication.model.ShowEntity
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiRequest {
 
     @GET("shows")
+    suspend fun getShows(@Query("page")page: Int): List<ShowResponse>
 
-    fun getShows(@Query("page")page: Int): Call<List<ShowStructureItem>>
+//    @GET("shows/:id")
+//    suspend fun getShowInfo(@Query("id")id: Int): ShowStructureItem
+
 }

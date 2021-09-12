@@ -1,11 +1,19 @@
 package com.android.tvmazeapplication.repository
 
-import com.android.tvmazeapplication.model.ShowStructureItem
-import retrofit2.Call
+import com.android.tvmazeapplication.model.ShowEntity
 
 interface Repository {
 
-    fun getShows(page: Int): Call<List<ShowStructureItem>>
+   suspend fun getShows(page: Int): List<ShowEntity>
 
-    fun insertShows(shows: List<ShowStructureItem>)
+    fun getShowInfo(id: Int): ShowEntity
+
+    fun insertShows(shows: List<ShowEntity>)
+
+    fun saveShowFrmDb(show: ShowEntity)
+
+    fun getShowFrmDb(id: Int): ShowEntity
+
+
+
 }

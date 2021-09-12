@@ -16,6 +16,7 @@ class StartKoin: Application() {
             modules(repositoryModule)
             modules(remoteDataSourceModule)
             modules(viewModelModule)
+            modules(viewModelShowInfoModule)
 
         }
     }

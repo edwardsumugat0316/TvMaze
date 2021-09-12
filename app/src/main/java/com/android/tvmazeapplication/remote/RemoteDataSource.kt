@@ -1,8 +1,10 @@
 package com.android.tvmazeapplication.remote
 
-import com.android.tvmazeapplication.model.ShowStructureItem
-import retrofit2.Call
+import com.android.tvmazeapplication.apiRequest.ShowResponse
+import com.android.tvmazeapplication.model.ShowEntity
 
 interface RemoteDataSource {
-    fun getShows(page: Int): Call<List<ShowStructureItem>>
+   suspend fun getShows(page: Int): List<ShowResponse>
+
+//    suspend fun getShowInfo(id: Int): ShowStructureItem
 }

@@ -10,26 +10,26 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.android.tvmazeapplication.R
-import com.android.tvmazeapplication.model.ShowStructureItem
+import com.android.tvmazeapplication.model.ShowEntity
 import com.android.tvmazeapplication.showInfo.ShowInfoActivity
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.recycler_view_item.view.*
 
-class RecyclerAdapter( var items: List<ShowStructureItem>, val context: Context): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter(var items: List<ShowEntity>, val context: Context): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     inner class ViewHolder(view:View): RecyclerView.ViewHolder(view){
         val image: ImageView = view.findViewById(R.id.iv_PhotoMovie)
         val title: TextView = view.findViewById(R.id. tv_title)
         val rating: TextView = view.findViewById(R.id.tv_rating)
+        val id: TextView = view.findViewById(R.id.tv_pos)
 
         init {
             view.setOnClickListener {
                 val position: Int = bindingAdapterPosition
                 val itemPos= items[position]
-                val title = itemPos.name
-                Toast.makeText(view.context, "You clicked this movie $title", Toast.LENGTH_SHORT).show()
+                val showId= itemPos.id
+                Toast.makeText(view.context, "You clicked this movie id $showId", Toast.LENGTH_SHORT).show()
                 val intent = Intent(context, ShowInfoActivity::class.java).apply {
-                    putExtra("ShowInfo",title)
+                    putExtra("ShowId", showId)
                 }
                 context.startActivity(intent)
             }
@@ -44,9 +44,10 @@ class RecyclerAdapter( var items: List<ShowStructureItem>, val context: Context)
         val showItem = items[position]
         holder.title.text = showItem.name
         holder.rating.text = showItem.rating.toString()
+        holder.id.text = showItem.id.toString()
 
         Glide.with(holder.image)
-            .load(showItem.image.medium)
+            .load(showItem.image)
             .into(holder.image)
     }
 
@@ -54,7 +55,7 @@ class RecyclerAdapter( var items: List<ShowStructureItem>, val context: Context)
         return items.size
     }
 
-    fun setItem(items: List<ShowStructureItem>){
+    fun setItem(items: List<ShowEntity>){
         this.items = items
         notifyDataSetChanged()
     }
