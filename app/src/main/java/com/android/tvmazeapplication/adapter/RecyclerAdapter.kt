@@ -41,13 +41,13 @@ class RecyclerAdapter(var items: List<ShowEntity>, val context: Context): Recycl
     }
 
     override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
-        val showItem = items[position]
-        holder.title.text = showItem.name
-        holder.rating.text = showItem.rating.toString()
-        holder.id.text = showItem.id.toString()
+        val showsItem = items[position]
+        holder.title.text = showsItem.name
+        holder.rating.text = showsItem.rating.toString()
+        holder.id.text = showsItem.id.toString()
 
         Glide.with(holder.image)
-            .load(showItem.image)
+            .load(showsItem.image)
             .into(holder.image)
     }
 
@@ -59,4 +59,7 @@ class RecyclerAdapter(var items: List<ShowEntity>, val context: Context): Recycl
         this.items = items
         notifyDataSetChanged()
     }
+
+
+
 }

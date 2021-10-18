@@ -17,6 +17,7 @@ class StartKoin: Application() {
             modules(remoteDataSourceModule)
             modules(viewModelModule)
             modules(viewModelShowInfoModule)
+            modules(viewModelEpisodeInfoModule)
 
         }
     }

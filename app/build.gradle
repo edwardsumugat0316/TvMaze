@@ -68,9 +68,10 @@ dependencies {
     //Room
     def room_version = "2.3.0"
     implementation "androidx.room:room-runtime:$room_version"
-    implementation"androidx.room:room-ktx:$room_version"
-    testImplementation"androidx.room:room-testing:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    testImplementation "androidx.room:room-testing:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
+
 
     // koin dependencies
     def koin_version = "2.0.1"
@@ -96,4 +97,11 @@ dependencies {
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
     //tabLayout
     implementation 'com.google.android.material:material:1.5.0-alpha01'
+
+//    // Paging
+//    implementation "androidx.paging:paging-runtime:3.0.1"
+//
+//    //Rx
+//    implementation 'io.reactivex.rxjava2:rxjava:2.2.10'
+//    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 }

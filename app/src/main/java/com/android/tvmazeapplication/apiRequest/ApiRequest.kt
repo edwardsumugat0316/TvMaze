@@ -1,7 +1,8 @@
 package com.android.tvmazeapplication.apiRequest
 
-import com.android.tvmazeapplication.model.ShowEntity
+
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiRequest {
@@ -9,7 +10,10 @@ interface ApiRequest {
     @GET("shows")
     suspend fun getShows(@Query("page")page: Int): List<ShowResponse>
 
-//    @GET("shows/:id")
-//    suspend fun getShowInfo(@Query("id")id: Int): ShowStructureItem
+    @GET("shows/{id}/episodes")
+    suspend fun getEpisodes(@Path("id")showId: Int?): List<EpisodeResponse>
+
+//    @GET("shows?page={pageNumber}")
+//    suspend fun getPageNumber(@Query("pageNumber")pageNumber: Int): List<ShowResponse>
 
 }
