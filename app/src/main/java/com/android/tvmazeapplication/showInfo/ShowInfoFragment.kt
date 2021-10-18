@@ -1,13 +1,17 @@
 package com.android.tvmazeapplication.showInfo
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.android.tvmazeapplication.MainActivity
 import com.android.tvmazeapplication.R
+import com.android.tvmazeapplication.model.Network
 import com.android.tvmazeapplication.model.ShowEntity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_show_info.*
@@ -22,37 +26,10 @@ class ShowInfoFragment : Fragment() {
 
     private val viewModel: ShowInfoViewModel by viewModel { parametersOf(arguments?.getInt("ShowId",0))}
 
-
-    companion object{
-//        const val ARG_showId = "ShowId"
-//        @JvmStatic
-//        fun newInstance(showId: Int): ShowInfoFragment {
-//            val fragment = ShowInfoFragment()
-//            val bundle = Bundle().apply {
-//                putInt(ARG_showId, showId)
-//            }
-//            fragment.arguments = bundle
-//            return fragment
-//        }
-    }
-
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_show_info, container, false)
-//        val showId = arguments?.getInt(ARG_showId)
-        val activityData = arguments?.getInt("ShowId",0)
-        setup(activityData)
+        val showId = arguments?.getInt("ShowId",0)
+        setup(showId)
         return view
     }
 
@@ -72,37 +49,11 @@ class ShowInfoFragment : Fragment() {
         tv_movieTitle.text = showInfo.name
         tv_movieRating.text = showInfo.rating.toString()
         tv_movieStatus.text = showInfo.status
-//        tv_networkName.text = showInfo.network?.name
         tv_movieSummary.text = showInfo.summary
 
         Glide.with(this)
                 .load(showInfo.image)
                 .into(iv_showPhoto)
-    }
-
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
-
-    override fun onStop() {
-        super.onStop()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-    override fun onDetach() {
-        super.onDetach()
     }
 
 }

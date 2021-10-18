@@ -13,25 +13,30 @@ class MainActivityViewModel(private val repository: Repository): ViewModel() {
 
     val showListLiveData: MutableLiveData<List<ShowEntity>> = MutableLiveData()
 
+    val searchLiveData: MutableLiveData<List<ShowEntity>> = MutableLiveData()
+
     fun loadingShows(page: Int){
         viewModelScope.launch {
             withContext(Dispatchers.IO){
                 val shows = repository.getShows(page)
+
                 withContext(Dispatchers.Main){
                     showListLiveData.value = shows
                 }
 
-//                showList.enqueue(object : retrofit2.Callback <List<ShowStructureItem>> {
-//                    override fun onResponse( call: Call<List<ShowStructureItem>>, response: Response<List<ShowStructureItem>>) {
-//                        showListLiveData.postValue(response.body())
-//                    }
-//
-//                    override fun onFailure(call: Call<List<ShowStructureItem>>, t: Throwable) {
-//                        showListLiveData.postValue(null)
-//                    }
-//                })
             }
         }
     }
 
+    fun searchTitle(title: String){
+        viewModelScope.launch {
+            withContext(Dispatchers.IO){
+                val searchTitle = repository.searchTitle(title)
+
+                withContext(Dispatchers.Main){
+                    searchLiveData.value = searchTitle
+                }
+            }
+        }
+    }
 }

@@ -22,24 +22,16 @@ import org.koin.core.parameter.parametersOf
 
 
 class ShowInfoActivity: BaseActivity() {
-    private val viewModel: ShowInfoViewModel by viewModel { parametersOf(intent.getIntExtra("ShowId", 0)) }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.show_info_activity)
 
-//        val fragment = ShowInfoFragment.newInstance(showId)
-//        val bundle = Bundle()
-//        bundle.putInt("ShowId",showId)
-//        val fragmentObject = ShowInfoFragment()
-//        fragmentObject.arguments = bundle
-//        val fm: FragmentManager = supportFragmentManager
-//        fm.beginTransaction().add(R.id.content_main, fragmentObject).commit()
         val showId = intent.getIntExtra("ShowId", 0)
         val tableLayout = findViewById<TabLayout>(R.id.tab_layout)
         val viewPager2 = findViewById<ViewPager2>(R.id.view_pager_2)
         val adapter = ViewPagerAdapter(supportFragmentManager, lifecycle,showId)
+        homeButton()
 
         viewPager2.adapter = adapter
 
@@ -55,16 +47,10 @@ class ShowInfoActivity: BaseActivity() {
 
     }
 
-    override fun onAttachFragment(fragment: Fragment) {
-        super.onAttachFragment(fragment)
-    }
-
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onResume() {
-        super.onResume()
+    private fun homeButton(){
+        home_button.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 
 
