@@ -13,7 +13,4 @@ interface ApiRequest {
     @GET("shows/{id}/episodes")
     suspend fun getEpisodes(@Path("id")showId: Int?): List<EpisodeResponse>
 
-//    @GET("shows?page={pageNumber}")
-//    suspend fun getPageNumber(@Query("pageNumber")pageNumber: Int): List<ShowResponse>
-
 }

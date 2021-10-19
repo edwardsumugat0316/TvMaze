@@ -37,33 +37,6 @@ class RepositoryImp(private val remoteDataSource: RemoteDataSource, private val 
 
     }
 
-//    override suspend fun getPageNumber(pageNumber: Int): List<ShowEntity> {
-//        val showResponse = remoteDataSource.getPageNumber(pageNumber)
-//        val showEntities = mutableListOf<ShowEntity>()
-//        showResponse.forEach {
-//            val showEntity = ShowEntity(averageRuntime = it.averageRuntime,
-//                    dvdCountry = it.dvdCountry,
-//                    genres = it.genres,
-//                    id = it.id,
-//                    image = it.image.original,
-//                    language = it.language,
-//                    name = it.name,
-//                    officialSite = it.officialSite,
-//                    premiered = it.premiered,
-//                    rating = it.rating.average,
-//                    runtime = it.runtime,
-//                    status = it.status,
-//                    summary = it.summary,
-//                    type = it.type,
-//                    updated = it.updated,
-//                    url = it.url,
-//                    weight = it.weight)
-//            showEntities.add(showEntity)
-//        }
-//        insertShows(showEntities)
-//        return showEntities
-//    }
-
     override suspend fun getEpisodes(showId: Int?): List<EpisodeEntity> {
         val episodeResponse = remoteDataSource.getEpisodes(showId = showId)
         val episodeEntities = mutableListOf<EpisodeEntity>()
