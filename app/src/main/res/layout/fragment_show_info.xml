@@ -104,60 +104,27 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="165dp"
-        android:layout_marginTop="190dp"
-        android:textSize="14sp"
-        android:text="Network:"
-        android:textColor="@color/white"/>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_networkName"
-        android:text="Network Name"
-        android:layout_marginStart="225dp"
-        android:layout_marginTop="190dp"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:textColor="@color/white"/>
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="wrap_content"
-        android:layout_height="440dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="295dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="10dp"
-        android:background="#F2F6F6" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="295dp"
         android:text="Summary:"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="14sp" />
 
 
     <TextView
         android:id="@+id/tv_movieSummary"
-        android:layout_width="389dp"
-        android:layout_height="358dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="315dp"
         android:layout_marginEnd="10dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="Movie Summary"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-thin"
         android:scrollbars="vertical"
         android:scrollHorizontally="true"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="13sp"
-        android:layout_marginBottom="8dp"/>
+        android:text="Movie Summary"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
 
 
 </RelativeLayout>

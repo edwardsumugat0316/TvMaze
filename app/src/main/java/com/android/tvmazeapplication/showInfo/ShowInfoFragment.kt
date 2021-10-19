@@ -9,9 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.android.tvmazeapplication.MainActivity
 import com.android.tvmazeapplication.R
-import com.android.tvmazeapplication.model.Network
 import com.android.tvmazeapplication.model.ShowEntity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_show_info.*

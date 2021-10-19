@@ -103,64 +103,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="165dp"
-        android:layout_marginTop="140dp"
-        android:text="Network:"
-        android:textColor="@color/white"
-        android:textSize="12sp" />
-
-
-    <TextView
-        android:id="@+id/tv_networkName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="225dp"
-        android:layout_marginTop="140dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="Network Name"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="365dp"
-        android:layout_height="219dp"
-        android:layout_marginStart="315dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="#FFFFFF" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="320dp"
+        android:layout_marginStart="300dp"
         android:layout_marginTop="20dp"
         android:text="Summary:"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="12sp" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tv_movieSummary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="320dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:scrollbars="vertical"
-            android:text="Movie Summary"
-            android:textAlignment="viewStart"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-    </ScrollView>
+    <TextView
+        android:id="@+id/tv_movieSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-thin"
+        android:scrollbars="vertical"
+        android:text="Movie Summary"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
 
 
 </RelativeLayout>

@@ -8,8 +8,6 @@ interface Repository {
 
    suspend fun getEpisodes(showId: Int?): List<EpisodeEntity>
 
-//   suspend fun getPageNumber(pageNumber: Int): List<ShowEntity>
-
     fun getShowInfo(id: Int): ShowEntity
 
     fun insertShows(shows: List<ShowEntity>)
@@ -17,9 +15,6 @@ interface Repository {
     fun saveShowFrmDb(show: ShowEntity)
 
     fun getShowFrmDb(id: Int): ShowEntity
-
-
-//    fun getNetworkName(netWorkName: String): Network
 
     fun insertEpisode(episode: List<EpisodeEntity>)
 
